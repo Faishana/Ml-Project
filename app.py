@@ -58,14 +58,17 @@ district_name = st.selectbox("📍 Select Fisheries District", encoder.classes_)
 district_encoded = encoder.transform([district_name])[0]
 
 total_marine = st.number_input(
-    "🐠 Total Marine Production (MT)",
-    min_value=0.0
+    "🐠 Total Marine Production (Metric Tons - MT)",
+    min_value=0.0,
+    help="Enter value in metric tons (as per official fisheries statistics)"
 )
 
 total_fish = st.number_input(
-    "🎣 Total Fish Production (MT)",
-    min_value=0.0
+    "🎣 Total Fish Production (Metric Tons - MT)",
+    min_value=0.0,
+    help="Enter value in metric tons (as per official fisheries statistics)"
 )
+
 
 if st.button("🔍 Predict Fish Catch"):
     input_data = pd.DataFrame({
