@@ -1,6 +1,7 @@
 import streamlit as st
 import pickle
 import pandas as pd
+import joblib
 
 # ---------------- Page Config ----------------
 st.set_page_config(
@@ -38,8 +39,11 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# ---------------- Load Model ----------------
-model = pickle.load(open("rf_model_final.pkl", "rb"))
+# Load the Random Forest model
+model = joblib.load("random_forest_model.pkl")
+
+# Load the LabelEncoder (can still use pickle if it was saved with pickle)
+import pickle
 encoder = pickle.load(open("label_encoder.pkl", "rb"))
 
 # ---------------- Title ----------------
